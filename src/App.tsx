@@ -1,4 +1,3 @@
-import React from "react";
 import { Shield } from "lucide-react";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 import LinkChecker from "./components/LinkChecker";
