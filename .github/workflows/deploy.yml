@@ -39,4 +39,6 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          path: dist-artifact
+          token: ${{ secrets.GITHUB_TOKEN }}
+          artifact_name: dist-artifact
+          
