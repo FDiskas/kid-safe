@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="%BASE_URL%" />
     <title>Kid-Safe Link Checker</title>
+    <script type="module">
+      (function() {
+        var params = new URLSearchParams(window.location.search);
+        var path = params.get('p');
+        if (path) {
+          window.history.replaceState({}, '', path);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
