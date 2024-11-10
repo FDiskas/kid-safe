@@ -11,10 +11,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@latest
+      uses: actions/checkout@v2
 
     - name: Set up Bun
-      uses: oven-sh/setup-bun@latest
+      uses: oven-sh/setup-bun@v2
 
     - name: Install dependencies
       run: bun install
@@ -23,7 +23,7 @@ jobs:
       run: bun run build
 
     - name: Upload artifact
-      uses: actions/upload-artifact@latest
+      uses: actions/upload-artifact@v4
       with:
         name: dist-artifact
         path: ./dist
