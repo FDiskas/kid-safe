@@ -2,7 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import { Shield, ShieldAlert, Search, X } from "lucide-react";
 
 interface SafetyResponse {
-	safe: boolean;
+	status: boolean;
+	url: string;
 }
 
 const LinkChecker = () => {
@@ -45,8 +46,8 @@ const LinkChecker = () => {
 			}
 
 			const data: SafetyResponse = await response.json();
-			// API returns true if domain is NOT safe for kids, so we invert the logic
-			setResult(data.safe ? "unsafe" : "safe");
+			// API returns true if domain is NOT safe for kids
+			setResult(data.status ? "unsafe" : "safe");
 		} catch (err) {
 			setError("Unable to check the URL safety. Please try again later.");
 			console.error("Error checking URL:", err);
@@ -69,12 +70,13 @@ const LinkChecker = () => {
 				<div className="relative">
 					<input
 						ref={inputRef}
-						type="text"
+						type="url"
 						value={url}
 						onChange={(e) => setUrl(e.target.value)}
 						placeholder="Enter website URL (e.g., example.com)"
 						className="w-full px-4 py-3 rounded-lg border-2 border-blue-100 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 outline-none transition-all pl-12 pr-10"
 						required
+						disabled={isChecking}
 					/>
 					<Search className="absolute left-4 top-3.5 text-blue-500 w-5 h-5" />
 					{url && (
@@ -83,6 +85,7 @@ const LinkChecker = () => {
 							onClick={clearInput}
 							className="absolute right-3 top-3.5 text-gray-400 hover:text-gray-600 p-0.5 rounded-full hover:bg-gray-100 transition-colors"
 							aria-label="Clear input"
+							disabled={isChecking}
 						>
 							<X className="w-5 h-5" />
 						</button>
@@ -145,9 +148,6 @@ const LinkChecker = () => {
 						{result === "safe"
 							? "This website seems appropriate for children. Always supervise online activity."
 							: "This website might contain inappropriate content for children. Adult supervision is strongly recommended."}
-					</p>
-					<p className="mt-2 text-sm text-gray-600">
-						Checking URL: {formatUrl(url)}
 					</p>
 				</div>
 			)}
