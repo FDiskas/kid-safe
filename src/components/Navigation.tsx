@@ -5,20 +5,19 @@ import { Shield, Menu, X } from "lucide-react";
 const Navigation = () => {
 	const [isOpen, setIsOpen] = React.useState(false);
 	const location = useLocation();
-	const baseUrl = import.meta.env.BASE_URL;
 
 	const links = [
-		{ path: `${baseUrl}`, label: "Home" },
-		{ path: `${baseUrl}guide`, label: "Parent Guide" },
-		{ path: `${baseUrl}resources`, label: "Resources" },
-		{ path: `${baseUrl}about`, label: "About" },
+		{ path: "/", label: "Home" },
+		{ path: "/guide", label: "Parent Guide" },
+		{ path: "/resources", label: "Resources" },
+		{ path: "/about", label: "About" },
 	];
 
 	return (
 		<nav className="bg-white shadow-sm">
 			<div className="container mx-auto px-4">
 				<div className="flex justify-between items-center h-16">
-					<Link to={baseUrl} className="flex items-center space-x-2">
+					<Link to="/" className="flex items-center space-x-2">
 						<Shield className="w-8 h-8 text-blue-600" />
 						<span className="font-bold text-xl text-gray-900">KidSafe</span>
 					</Link>
