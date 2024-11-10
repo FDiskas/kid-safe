@@ -4,13 +4,21 @@
     <meta charset="utf-8">
     <base href="%BASE_URL%" />
     <title>Redirecting...</title>
+    <!-- Start Single Page Apps for GitHub Pages -->
     <script type="text/javascript">
-      (function() {
-        var l = window.location;
-        var redirectUrl = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + '/index.html?p=' + encodeURIComponent(l.pathname + l.search + l.hash);
-        window.location.replace(redirectUrl);
-      })();
+      // https://github.com/rafgraph/spa-github-pages
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) { 
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
     </script>
+    <!-- End Single Page Apps for GitHub Pages -->
   </head>
   <body>
   </body>
