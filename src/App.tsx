@@ -16,7 +16,7 @@ import WarningSigns from "./components/sections/WarningSigns";
 
 function App() {
 	return (
-		<BrowserRouter>
+		<BrowserRouter basename={import.meta.env.BASE_URL}>
 			<div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
 				<Navigation />
 
