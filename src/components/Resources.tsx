@@ -108,14 +108,14 @@ const Resources = () => {
 						<br />
 						<span className="font-semibold">Hotline: 1-800-843-5678</span>
 					</p>
-					<div class="sellmore">
-					  <link rel="stylesheet" crossorigin href="https://sellmoreprotection.com/resources/13058324172/assets/index-CVJdq1U5.css">
+					<div className="sellmore">
+					  <link rel="stylesheet" href="https://sellmoreprotection.com/resources/13058324172/assets/index-CVJdq1U5.css" />
 					  <script type="application/json">
-					    {
+					    {`{
 					      "API_KEY": "kazkoks-raktas",
 					      "--sm-color-brand-dark": "#3b5660",
 					      "--sm-color-gradient-to-light": "#395038"
-					    }
+					    }`}
 					  </script>
 					  <script async src="https://sellmoreprotection.com/resources/13058324172/assets/index-DYZF71J9.js"></script>
 					</div>
